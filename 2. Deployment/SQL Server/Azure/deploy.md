@@ -19,3 +19,11 @@ You can deploy all the resources mentioned in this guide with the one-click butt
 <a href="https%3A%2F%2Fraw.githubusercontent.com%2Flampana%2Ffactory-assistant%2Fmain%2F2.%2520Deployment%2FSQL%2520Server%2FAzure%2Fmain.json" target="_blank" rel="noopener noreferrer">
 	<img loading="lazy" src="https://aka.ms/deploytoazurebutton" alt="Deploy to Azure" class="img_ev3q">
 </a>
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flampana%2Ffactory-assistant%2Fmain%2F2.%2520Deployment%2FSQL%2520Server%2FAzure%2Fmain.json" target="_blank" rel="noopener noreferrer">
+    <img loading="lazy" src="https://aka.ms/deploytoazurebutton" alt="Deploy to Azure" class="img_ev3q">
+</a>
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fhasura%2fgraphql-engine%2fstable%2finstall-manifests%2fazure-container-with-pg%2fazuredeploy.json" target="_blank" rel="noopener noreferrer">
+    <img loading="lazy" src="https://aka.ms/deploytoazurebutton" alt="Deploy to Azure" class="img_ev3q">
+</a>
