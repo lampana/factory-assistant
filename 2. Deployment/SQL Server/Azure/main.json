@@ -1,0 +1,92 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+      "_generator": {
+        "name": "bicep",
+        "version": "0.34.44.8038",
+        "templateHash": "912943298851262166"
+      }
+    },
+    "parameters": {
+      "prefix": {
+        "type": "string"
+      },
+      "region": {
+        "type": "string",
+        "defaultValue": "eastus2"
+      }
+    },
+    "variables": {
+      "functionResourceGroupName": "[format('{0}_app_rg', parameters('prefix'))]",
+      "databaseResourceGroupName": "[format('{0}_database_rg', parameters('prefix'))]"
+    },
+    "resources": [
+      {
+        "type": "Microsoft.Resources/resourceGroups",
+        "apiVersion": "2021-04-01",
+        "name": "[variables('functionResourceGroupName')]",
+        "location": "[parameters('region')]"
+      },
+      {
+        "type": "Microsoft.Resources/resourceGroups",
+        "apiVersion": "2021-04-01",
+        "name": "[variables('databaseResourceGroupName')]",
+        "location": "[parameters('region')]"
+      },
+      {
+        "type": "Microsoft.Resources/deployments",
+        "apiVersion": "2022-09-01",
+        "name": "deployAppResources",
+        "resourceGroup": "[variables('functionResourceGroupName')]",
+        "properties": {
+          "expressionEvaluationOptions": {
+            "scope": "inner"
+          },
+          "mode": "Incremental",
+          "parameters": {
+            "prefix": {
+              "value": "[parameters('prefix')]"
+            },
+            "region": {
+              "value": "[parameters('region')]"
+            }
+          },
+          "template": {
+            "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+            "contentVersion": "1.0.0.0",
+            "metadata": {
+              "_generator": {
+                "name": "bicep",
+                "version": "0.34.44.8038",
+                "templateHash": "1944401709276939599"
+              }
+            },
+            "parameters": {
+              "prefix": {
+                "type": "string"
+              },
+              "region": {
+                "type": "string"
+              }
+            },
+            "resources": [
+              {
+                "type": "Microsoft.Storage/storageAccounts",
+                "apiVersion": "2022-09-01",
+                "name": "[format('{0}functionappsa', parameters('prefix'))]",
+                "location": "[parameters('region')]",
+                "sku": {
+                  "name": "Standard_LRS"
+                },
+                "kind": "StorageV2"
+              }
+            ]
+          }
+        },
+        "dependsOn": [
+          "[subscriptionResourceId('Microsoft.Resources/resourceGroups', variables('functionResourceGroupName'))]"
+        ]
+      }
+    ]
+  }
