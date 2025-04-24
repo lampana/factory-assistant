@@ -13,6 +13,7 @@ GET /api/sql?input=STRING&code=STRING
 | Name | Required | Type | Default | Description |
 | --- | --- | --- | --- | --- |
 | input | true | SQL | None | the SQL to send to the assistant. |
+| code | true | string | None | the authorization code. |
 | include_data | false | true, false | true | include the results of running the SQL in the response. |
 | include_summary | false | true, false | false | include a summary of the results in the response. |
 | format | false | json, html | json | the global response format. |
