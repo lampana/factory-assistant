@@ -18,8 +18,8 @@ POST /api/feedback?code=STRING
 
 ```json
 {
-    "text": STRING,
-    "message_id": UUID
+    "text": "STRING",
+    "message_id": "UUID"
 }
 ```
 
