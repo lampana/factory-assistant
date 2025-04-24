@@ -16,10 +16,12 @@ POST /api/feedback?code=STRING
 
 ## Request body
 
+```json
 {
     "text": STRING,
     "message_id": UUID
 }
+```
 
 ## Example Request
 
